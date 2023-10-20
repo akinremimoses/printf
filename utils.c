@@ -22,8 +22,7 @@ int is_printable(char c)
  * @ascii_code: ASCII 
  * Return: 3;
  */
-
-int append_hexa_code(char ascii_code, char buffer[], int y)
+int append_hexa_code(char ascii_code, char buffer[], int i)
 {
 	char map_to[] = "0123456789ABCDEF";
 
@@ -31,11 +30,11 @@ int append_hexa_code(char ascii_code, char buffer[], int y)
 	{
 		ascii_code *= -1;
 	}
-	buffer[y++] = '\\';
-	buffer[y++] = 'x';
+	buffer[i++] = '\\';
+	buffer[i++] = 'x';
 
-	buffer[y++] = map_to[ascii_code / 16];
-	buffer[y] = map_to[ascii_code % 16];
+	buffer[i++] = map_to[ascii_code / 16];
+	buffer[i] = map_to[ascii_code % 16];
 	return (3);
 }
 /**
@@ -43,8 +42,8 @@ int append_hexa_code(char ascii_code, char buffer[], int y)
  * @c: evaluated char
  * Return: 1 if c is digit else return 0
  */
-
 int is_digit(char c)
+
 {
 	if (c >= '0' && c <= '9')
 	{
@@ -61,19 +60,19 @@ int is_digit(char c)
  * @size: type to be casted
  * Return: casted value
  */
-long int convert_size_number(long int n, int size)
+long int convert_size_number(long int num, int size)
 {
 	if (size == S_LONG)
 	{
-		return (n);
+		return (num);
 	}
 	else if (size == S_SHORT)
 	{
-		return ((short)n);
+		return ((short)num);
 	}
 	else
 	{
-		return ((int)n);
+		return ((int)num);
 	}
 }
 /**
@@ -82,19 +81,19 @@ long int convert_size_number(long int n, int size)
  * @size: type to be casted
  * Return: casted value
  */
-long int convert_size_unsigned(unsigned long int n, int size)
+long int convert_size_unsgnd(unsigned long int num, int size)
 {
 	if (size == S_LONG)
 	{
-		return (n);
+		return (num);
 	}
 	else if (size == S_SHORT)
 	{
-		return ((unsigned short)n);
+		return ((unsigned short)num);
 	}
 	else
 	{
-		return ((unsigned int)n);
+		return ((unsigned int)num);
 	}
 }
 
